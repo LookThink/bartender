@@ -1,10 +1,14 @@
 // Call required plugins
 var gulp = require("gulp"),
+    livereload = require("gulp-livereload"),
     sourcemaps = require("gulp-sourcemaps"),
     autoprefixer = require("gulp-autoprefixer"),
     scsslint = require("gulp-scss-lint"),
     sass = require("gulp-sass"),
-    minifyCSS = require("gulp-minify-css");
+    minifyCSS = require("gulp-minify-css"),
+    remember = require("gulp-remember"),
+    cache = require("gulp-cached"),
+    imagemin = require("gulp-imagemin");
 
 
 // Set project paths
@@ -14,7 +18,8 @@ var paths = {
 };
 
 
-// Build pipes
+// Build Pipes
+
 // Styles
 gulp.task("styles", function() {
   return gulp.src(paths.src + "scss/**/*.scss")
@@ -41,6 +46,17 @@ gulp.task("styles", function() {
     .pipe(gulp.dest(paths.dest + "css"));
 });
 
+
+// Image Management
+gulp.task("images", function() {
+  return gulp.src(paths.src + "images/**/*")
+    .pipe(cache("images"))
+    .pipe(imagemin())
+    .pipe(remember("images"))
+    .pipe(gulp.dest(paths.dest + "images"))
+});
+
+
 gulp.task("default", function() {
-  gulp.start("styles");
+  gulp.start("styles", "images");
 });
