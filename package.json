@@ -15,7 +15,7 @@
     "gulp",
     "front end"
   ],
-  "author": "Greg Bruening <greg@lookthink.com",
+  "author": "Greg Bruening <greg@lookthink.com>",
   "license": "MIT",
   "dependencies": {
     "del": "^1.1.1",
