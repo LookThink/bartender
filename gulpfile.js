@@ -11,8 +11,6 @@ var gulp = require("gulp"),
     minifyCSS = require("gulp-minify-css"),
     concat = require("gulp-concat"),
     uglify = require("gulp-uglify"),
-    remember = require("gulp-remember"),
-    cache = require("gulp-cached"),
     imagemin = require("gulp-imagemin");
 
 
@@ -99,9 +97,7 @@ gulp.task("images", function() {
     .pipe(plumber({
       errorHandler: notify.onError("<%= error.message %>")
     }))
-    .pipe(cache("images"))
     .pipe(imagemin())
-    .pipe(remember("images"))
     .pipe(gulp.dest(paths.dest + "images"))
     .pipe(notify({
       title: "Bartender",
