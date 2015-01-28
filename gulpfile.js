@@ -29,6 +29,12 @@ var paths = {
 
 
 // Build Pipes
+// HTML
+gulp.task("html", function() {
+  return gulp.src(paths.src + "**/*.html")
+    .pipe(gulp.dest(paths.dest))
+    .pipe(livereload());
+});
 
 // Styles
 gulp.task("styles", function() {
@@ -105,12 +111,13 @@ gulp.task("images", function() {
 
 // Default Task
 gulp.task("default", function() {
-  gulp.start("styles", "scripts", "images");
+  gulp.start("html", "styles", "scripts", "images");
 });
 
 
 // Watch Task
 gulp.task("watch", function() {
+  gulp.watch(paths.src + "**/*.html", ["html"]);
   gulp.watch(paths.src + "scss/**/*.scss", ["styles"]);
   gulp.watch(paths.scripts, ["scripts"]);
   gulp.watch(paths.src + "images/**/*", ["images"]);
