@@ -1,5 +1,6 @@
 // Call required plugins
 var gulp = require("gulp"),
+    changed = require("gulp-changed"),
     plumber = require("gulp-plumber"),
     notify = require("gulp-notify"),
     livereload = require("gulp-livereload"),
@@ -10,8 +11,6 @@ var gulp = require("gulp"),
     minifyCSS = require("gulp-minify-css"),
     concat = require("gulp-concat"),
     uglify = require("gulp-uglify"),
-    remember = require("gulp-remember"),
-    cache = require("gulp-cached"),
     imagemin = require("gulp-imagemin");
 
 
@@ -32,6 +31,7 @@ var paths = {
 // HTML
 gulp.task("html", function() {
   return gulp.src(paths.src + "**/*.html")
+    .pipe(changed(paths.dest))
     .pipe(gulp.dest(paths.dest))
     .pipe(livereload());
 });
@@ -93,12 +93,11 @@ gulp.task("scripts", function() {
 // Image Management
 gulp.task("images", function() {
   return gulp.src(paths.src + "images/**/*")
+    .pipe(changed(paths.dest + "images"))
     .pipe(plumber({
       errorHandler: notify.onError("<%= error.message %>")
     }))
-    .pipe(cache("images"))
     .pipe(imagemin())
-    .pipe(remember("images"))
     .pipe(gulp.dest(paths.dest + "images"))
     .pipe(notify({
       title: "Bartender",
