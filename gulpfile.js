@@ -9,6 +9,7 @@ var gulp = require("gulp"),
     scsslint = require("gulp-scss-lint"),
     sass = require("gulp-sass"),
     minifyCSS = require("gulp-minify-css"),
+    jshint = require("gulp-jshint"),
     concat = require("gulp-concat"),
     uglify = require("gulp-uglify"),
     imagemin = require("gulp-imagemin");
@@ -77,6 +78,8 @@ gulp.task("scripts", function() {
       errorHandler: notify.onError("<%= error.message %>")
     }))
     .pipe(sourcemaps.init())
+      .pipe(jshint())
+      .pipe(jshint.reporter('default'))
       .pipe(concat("scripts.js"))
       .pipe(uglify())
     .pipe(sourcemaps.write())
