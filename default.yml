@@ -7,19 +7,19 @@ linters:
     enabled: true
     space_before_bang: true
     space_after_bang: false
-    severity: warning
-
+    
   BorderZero:
     enabled: true
-    severity: warning
-
+    
   ColorKeyword:
     enabled: false
 
+  ColorVariable:
+    enabled: true
+
   Comment:
     enabled: true
-    severity: warning
-
+    
   DebugStatement:
     enabled: true
 
@@ -28,18 +28,19 @@ linters:
 
   DuplicateProperty:
     enabled: true
+    severity: error
 
   ElsePlacement:
-    enabled: true
+    enabled: false
     style: same_line # or 'new_line'
-    severity: warning
-
+    
   EmptyLineBetweenBlocks:
     enabled: true
     ignore_single_line_blocks: true
 
   EmptyRule:
     enabled: true
+    severity: error
 
   FinalNewline:
     enabled: true
@@ -55,11 +56,11 @@ linters:
 
   HexValidation:
     enabled: true
+    severity: error
 
   IdSelector:
     enabled: true
-    severity: warning
-
+    
   ImportantRule:
     enabled: true
 
@@ -67,8 +68,7 @@ linters:
     enabled: true
     leading_underscore: false
     filename_extension: false
-    severity: warning
-
+    
   Indentation:
     enabled: true
     character: space # or 'tab'
@@ -81,29 +81,44 @@ linters:
   MergeableSelector:
     enabled: true
     force_nesting: true
+    severity: error
 
   NameFormat:
     enabled: true
-    allow_leading_underscore: true
+    allow_leading_underscore: false
     convention: BEM # or 'BEM', or a regex pattern
 
   NestingDepth:
     enabled: true
     max_depth: 3
-    severity: warning
-
+    
   PlaceholderInExtend:
     enabled: true
-    severity: warning
 
+  PropertyCount:
+    enabled: false
+    include_nested: true
+    max_properties: 10
+    
   PropertySortOrder:
     enabled: true
-    order: smacss
-    ignore_unspecified: false
+    order:
+      - position
+      - display
+      - width
+      - height
+      - margin
+      - padding
+      - background
+      - border
+      - font
+    ignore_unspecified: true
+    separate_groups: false
 
   PropertySpelling:
     enabled: true
     extra_properties: []
+    severity: error
 
   QualifyingElement:
     enabled: true
@@ -135,7 +150,7 @@ linters:
 
   SpaceAfterPropertyColon:
     enabled: true
-    style: at_least_one_space # or 'no_space', or 'at_least_one_space', or 'aligned'
+    style: aligned # or 'one_space' or 'no_space', or 'at_least_one_space', or 'aligned'
 
   SpaceAfterPropertyName:
     enabled: true
@@ -148,11 +163,10 @@ linters:
   SpaceBetweenParens:
     enabled: true
     spaces: 0
-    severity: warning
-
+    
   StringQuotes:
     enabled: true
-    style: double_quotes # or double_quotes
+    style: double_quotes # or single_quotes
 
   TrailingSemicolon:
     enabled: true
@@ -168,10 +182,17 @@ linters:
 
   UrlFormat:
     enabled: true
-    severity: warning
-
+    
   UrlQuotes:
     enabled: true
+
+  VariableForProperty:
+    enabled: true
+    properties:
+      - color
+      - font-family
+      - font-size
+      - font-weight
 
   VendorPrefixes:
     enabled: true
