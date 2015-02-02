@@ -150,7 +150,7 @@ linters:
 
   SpaceAfterPropertyColon:
     enabled: true
-    style: aligned # or 'one_space' or 'no_space', or 'at_least_one_space', or 'aligned'
+    style: one_space # or 'one_space' or 'no_space', or 'at_least_one_space', or 'aligned'
 
   SpaceAfterPropertyName:
     enabled: true
