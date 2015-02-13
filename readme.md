@@ -7,6 +7,12 @@ Featuring the capabilities akin to those in tools like CodeKit and Prepros, this
 
 ***
 
+##### Latest Changes
+
++ Replaced LiveReload with BrowserSync
+
+***
+
 ##### HTML
 
 The HTML pipe (`gulp html`) has the simple task of moving HTML files to the destination folder. It features a check so only changed HTML gets moved over on save / run.

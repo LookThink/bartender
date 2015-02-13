@@ -1,9 +1,10 @@
 // Call required plugins
 var gulp = require("gulp"),
+    browserSync = require("browser-sync")
     changed = require("gulp-changed"),
+    filter = require("gulp-filter"),
     plumber = require("gulp-plumber"),
     notify = require("gulp-notify"),
-    livereload = require("gulp-livereload"),
     sourcemaps = require("gulp-sourcemaps"),
     autoprefixer = require("gulp-autoprefixer"),
     scsslint = require("gulp-scss-lint"),
@@ -28,13 +29,16 @@ var paths = {
 };
 
 
+// Set up BrowserSync Reloading
+var reload = browserSync.reload;
+
+
 // Build Pipes
 // HTML
 gulp.task("html", function() {
   return gulp.src(paths.src + "**/*.html")
     .pipe(changed(paths.dest))
     .pipe(gulp.dest(paths.dest))
-    .pipe(livereload());
 });
 
 // Styles
@@ -62,12 +66,15 @@ gulp.task("styles", function() {
     // Create the sourcemap
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.dest + "css"))
+    // .pipe(filter("**/*.css"))
+    .pipe(reload({
+      stream: true
+    }))
     .pipe(notify({
       title: "Bartender",
       message: "SCSS compiled.",
       onLast: true
     }))
-    .pipe(livereload());
 });
 
 
@@ -77,11 +84,17 @@ gulp.task("scripts", function() {
     .pipe(plumber({
       errorHandler: notify.onError("<%= error.message %>")
     }))
+    // Initialize sourcemapping
     .pipe(sourcemaps.init())
+      // Run JSHint on all JS files
       .pipe(jshint())
       .pipe(jshint.reporter('default'))
+      // Concatenate JS filels in the order specified
+      // in the paths.scripts variable
       .pipe(concat("scripts.js"))
+      // Uglify (minimize) the concatenated file
       .pipe(uglify())
+    // Create the sourcemap
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.dest + "scripts"))
     .pipe(notify({
@@ -89,7 +102,6 @@ gulp.task("scripts", function() {
       message: "Scripts concatenated and uglified.",
       onLast: true
     }))
-    .pipe(livereload());
 });
 
 
@@ -100,27 +112,49 @@ gulp.task("images", function() {
     .pipe(plumber({
       errorHandler: notify.onError("<%= error.message %>")
     }))
+    // Minify all image assets
     .pipe(imagemin())
     .pipe(gulp.dest(paths.dest + "images"))
+    // Inject changes via BrowserSync
+    .pipe(reload({
+      stream: true
+    }))
     .pipe(notify({
       title: "Bartender",
       message: "Images minified.",
       onLast: true
     }))
-    .pipe(livereload());
+});
+
+
+// BrowserSync
+// 
+// Options documention can be found at
+// http://www.browsersync.io/docs/options/
+gulp.task('browser-sync', function() {
+  browserSync({
+    // Which browsers should BS load into
+    browser: ['google chrome'],
+    // Local Server
+    server: {
+      baseDir: paths.dest
+    }
+    // Proxy Server (Custom Enviro.)
+    // proxy: "yourlocal.dev"
+  })
 });
 
 
 // Default Task
-gulp.task("default", function() {
+gulp.task("default", ['browser-sync'], function() {
   gulp.start("html", "styles", "scripts", "images");
 });
 
 
 // Watch Task
-gulp.task("watch", function() {
-  gulp.watch(paths.src + "**/*.html", ["html"]);
+gulp.task("watch", ['browser-sync'], function() {
+  gulp.watch(paths.src + "**/*.html", ["html", reload]);
   gulp.watch(paths.src + "scss/**/*.scss", ["styles"]);
-  gulp.watch(paths.scripts, ["scripts"]);
+  gulp.watch(paths.scripts, ["scripts", reload]);
   gulp.watch(paths.src + "images/**/*", ["images"]);
 });
