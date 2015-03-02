@@ -1,8 +1,7 @@
 // Call required plugins
 var gulp = require("gulp"),
-    browserSync = require("browser-sync")
+    browserSync = require("browser-sync"),
     changed = require("gulp-changed"),
-    filter = require("gulp-filter"),
     plumber = require("gulp-plumber"),
     notify = require("gulp-notify"),
     sourcemaps = require("gulp-sourcemaps"),
@@ -66,7 +65,6 @@ gulp.task("styles", function() {
     // Create the sourcemap
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.dest + "css"))
-    // .pipe(filter("**/*.css"))
     .pipe(reload({
       stream: true
     }))
