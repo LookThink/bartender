@@ -1,22 +1,21 @@
 {
   "name": "bartender",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Front-end development management stream by LookThink.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "license": "MIT",
+
   "repository": {
     "type": "git",
     "url": "https://bitbucket.org/lookthink/bartender"
   },
+  "author": "Greg Bruening <greg@lookthink.com>",
+  
   "keywords": [
     "bartender",
     "gulp",
     "front end"
   ],
-  "author": "Greg Bruening <greg@lookthink.com>",
-  "license": "MIT",
+
   "dependencies": {
     "browser-sync": "^2.0.1",
     "del": "^1.1.1",
