@@ -57,7 +57,7 @@ gulp.task("styles", function() {
       .pipe(sass())
       // Autoprefix compiled CSS
       .pipe(autoprefixer({
-        browsers: ["last 2 versions", "Explorer >= 8"],
+        browsers: ["last 2 versions", "Explorer >= 9"],
         cascade: false
       }))
       // Minify compiled CSS
@@ -144,9 +144,7 @@ gulp.task('browser-sync', function() {
 
 
 // Default Task
-gulp.task("default", function() {
-  gulp.start("html", "styles", "scripts", "images");
-});
+gulp.task("default", ["html", "styles", "scripts", "images"]);
 
 
 // Watch Task
