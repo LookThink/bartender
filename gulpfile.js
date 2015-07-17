@@ -6,7 +6,6 @@ var gulp = require("gulp"),
     notify = require("gulp-notify"),
     sourcemaps = require("gulp-sourcemaps"),
     autoprefixer = require("gulp-autoprefixer"),
-    scsslint = require("gulp-scss-lint"),
     sass = require("gulp-sass"),
     minifyCSS = require("gulp-minify-css"),
     jshint = require("gulp-jshint"),
@@ -16,7 +15,7 @@ var gulp = require("gulp"),
 
 
 // Set project paths
-// 
+//
 // Scripts var sets JS load order for Concat.
 // Ex: ["vendor/pluginName/plugin.js",
 //      "js/custom.js",
@@ -48,11 +47,6 @@ gulp.task("styles", function() {
     }))
     // Initialize sourcemapping
     .pipe(sourcemaps.init())
-      // Run SCSS Lint on all SCSS files
-      .pipe(scsslint({
-        config: "default.yml",
-        reporterOutput: "scssReport.xml"
-      }))
       // Compile SCSS
       .pipe(sass())
       // Autoprefix compiled CSS
@@ -126,7 +120,7 @@ gulp.task("images", function() {
 
 
 // BrowserSync
-// 
+//
 // Options documention can be found at
 // http://www.browsersync.io/docs/options/
 gulp.task('browser-sync', function() {

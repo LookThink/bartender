@@ -9,7 +9,7 @@ Featuring the capabilities akin to those in tools like CodeKit and Prepros, this
 
 ##### Latest Changes
 
-+ Replaced LiveReload with BrowserSync
++ Remove SCSS Lint for performance issues
 
 ***
 
@@ -21,10 +21,9 @@ The HTML pipe (`gulp html`) has the simple task of moving HTML files to the dest
 
 The styles pipe (`gulp styles`) runs through a variety of tools to check and compile your SCSS files:
 
-1. Lint your SCSS based on LookThink's custom linter configuration
-2. Compile your SCSS files utilizing libsass
-3. Autoprefix the compiled CSS
-4. Minify the compiled / prefixed CSS
+1. Compile your SCSS files utilizing libsass
+2. Autoprefix the compiled CSS
+3. Minify the compiled / prefixed CSS
 
 ##### Scripts
 
