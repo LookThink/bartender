@@ -39,6 +39,7 @@ gulp.task("html", function() {
     .pipe(gulp.dest(paths.dest))
 });
 
+
 // Styles
 gulp.task("styles", function() {
   return gulp.src(paths.src + "scss/**/*.scss")
@@ -100,7 +101,6 @@ gulp.task("scripts", function() {
 // Image Management
 gulp.task("images", function() {
   return gulp.src(paths.src + "images/**/*")
-    .pipe(changed(paths.dest + "images"))
     .pipe(plumber({
       errorHandler: notify.onError("<%= error.message %>")
     }))
