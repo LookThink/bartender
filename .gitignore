@@ -1,0 +1,10 @@
+# Core OS Files
+.DS_Store
+
+# Project folders / files
+.sass-cache/
+*.scssc
+*.orig
+
+# Vendor folders
+node_modules/
