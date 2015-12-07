@@ -1,27 +1,35 @@
 {
-  "name": "Barkeep",
-  "version": "0.1.0",
+  "name": "bartender",
+  "version": "1.2.0",
   "description": "Front-end development management stream by LookThink.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "license": "MIT",
+
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/lookthink/bartender"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "del": "^0.1.3",
-    "gulp": "^3.8.8",
-    "gulp-autoprefixer": "^1.0.1",
-    "gulp-cache": "^0.2.4",
-    "gulp-concat": "^2.4.1",
-    "gulp-imagemin": "^1.0.1",
-    "gulp-jshint": "^1.8.5",
-    "gulp-minify-css": "^0.3.10",
-    "gulp-notify": "^2.0.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-ruby-sass": "^0.7.1",
-    "gulp-sass": "^1.0.0",
-    "gulp-scss-lint": "^0.1.4",
-    "gulp-uglify": "^1.0.1"
+  "author": "Greg Bruening <greg@lookthink.com>",
+
+  "keywords": [
+    "bartender",
+    "gulp",
+    "front end"
+  ],
+
+  "dependencies": {
+    "browser-sync": "^2.0.1",
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-changed": "^1.2.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-jshint": "^1.10.0",
+    "gulp-minify-css": "^1.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-sass": "^1.3.3",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-uglify": "^1.2.0"
   }
 }
