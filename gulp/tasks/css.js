@@ -24,8 +24,8 @@ var paths = {
 var autoprefixer  = autoprefixer(config.tasks.css.postCss.autoprefixer),
     cssnano       = cssnano(config.tasks.css.postCss.cssnano),
     postcssConfig = [
-      autoprefixer
-      // cssnano
+      autoprefixer,
+      cssnano
     ]
 ;
 
