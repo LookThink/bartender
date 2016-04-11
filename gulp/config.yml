@@ -1,0 +1,22 @@
+root: 
+  src:  './src'
+  dest: './public'
+
+tasks:
+  # CSS Task
+  css:
+    src: 'scss'
+    dest: 'css'
+    postCss:
+      autoprefixer:
+        browsers: ['last 2 versions', 'IE 9']
+      cssnano: 
+        convertValues: false
+        zindex: false
+    extensions: ['sass', 'scss', 'css']
+
+  # Images Task
+  images: 
+    src: 'img'
+    dest: 'img'
+    extensions: ['png', 'jpg', 'jpeg', 'gif']
