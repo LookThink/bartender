@@ -3,20 +3,61 @@ root:
   dest: './public'
 
 tasks:
+  defaultOrder:
+    - css
+    - images
+    - js
+  watchableTasks:
+    - css
+    - images
+
+  # BrowserSync
+  browserSync:
+    server: 
+      baseDir: './public'
+
   # CSS Task
   css:
     src: 'scss'
     dest: 'css'
     postCss:
       autoprefixer:
-        browsers: ['last 2 versions', 'IE 9']
+        browsers:
+          - 'last 2 versions'
+          - 'IE 9'
       cssnano: 
         convertValues: false
         zindex: false
-    extensions: ['sass', 'scss', 'css']
+    extensions:
+      - 'sass'
+      - 'scss'
+      - 'css'
 
   # Images Task
   images: 
     src: 'img'
     dest: 'img'
-    extensions: ['png', 'jpg', 'jpeg', 'gif']
+    extensions: 
+      - 'png'
+      - 'jpg'
+      - 'jpeg'
+      - 'gif'
+
+  # JS Task
+  js:
+    src: 'js'
+    dest: 'js'
+    extractSharedJs: true
+    entries: 
+      app: 
+        - './app.js'
+      page: 
+        - './page.js'
+    extensions: 
+      - 'js'
+      - 'json'
+    babel: 
+      presets: 
+        - 'es2015'
+        - 'stage-1'
+      plugins: []
