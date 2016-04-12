@@ -61,3 +61,22 @@ tasks:
         - 'es2015'
         - 'stage-1'
       plugins: []
+
+  static:
+    src: 'static'
+    dest: './'
+
+    svgSprite:
+      src: 'icons',
+      dest: 'images',
+      extensions:
+        - 'svg'
+
+assetTasks:
+  - 'fonts'
+  - 'images'
+  - 'svgSprite'
+
+codeTasks: 
+  - 'css'
+  - 'js'
