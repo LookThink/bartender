@@ -22,11 +22,16 @@ tasks:
     dest: 'css'
     postCss:
       autoprefixer:
-        browsers: ['last 2 versions', 'IE 9']
+        browsers:
+          - 'last 2 versions'
+          - 'IE 9'
       cssnano: 
         convertValues: false
         zindex: false
-    extensions: ['sass', 'scss', 'css']
+    extensions:
+      - 'sass'
+      - 'scss'
+      - 'css'
 
   # Images Task
   images: 
