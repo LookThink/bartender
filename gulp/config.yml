@@ -3,6 +3,19 @@ root:
   dest: './public'
 
 tasks:
+  defaultOrder:
+    - css
+    - images
+    - js
+  watchableTasks:
+    - css
+    - images
+
+  # BrowserSync
+  browserSync:
+    server: 
+      baseDir: './public'
+
   # CSS Task
   css:
     src: 'scss'
@@ -19,4 +32,27 @@ tasks:
   images: 
     src: 'img'
     dest: 'img'
-    extensions: ['png', 'jpg', 'jpeg', 'gif']
+    extensions: 
+      - 'png'
+      - 'jpg'
+      - 'jpeg'
+      - 'gif'
+
+  # JS Task
+  js:
+    src: 'js'
+    dest: 'js'
+    extractSharedJs: true
+    entries: 
+      app: 
+        - './app.js'
+      page: 
+        - './page.js'
+    extensions: 
+      - 'js'
+      - 'json'
+    babel: 
+      presets: 
+        - 'es2015'
+        - 'stage-1'
+      plugins: []
