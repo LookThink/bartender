@@ -1,6 +1,6 @@
 root: 
   src:  './src'
-  dest: './public'
+  dest: './pkg'
 
 tasks:
   defaultOrder:
@@ -14,7 +14,7 @@ tasks:
   # BrowserSync
   browserSync:
     server: 
-      baseDir: './public'
+      baseDir: './pkg'
 
   # CSS Task
   css:
@@ -47,28 +47,14 @@ tasks:
   js:
     src: 'js'
     dest: 'js'
-    extractSharedJs: true
-    entries: 
-      app: 
-        - './app.js'
-      page: 
-        - './page.js'
-    extensions: 
-      - 'js'
-      - 'json'
-    babel: 
-      presets: 
-        - 'es2015'
-        - 'stage-1'
-      plugins: []
 
   static:
     src: 'static'
     dest: './'
 
     svgSprite:
-      src: 'icons',
-      dest: 'images',
+      src: 'icons'
+      dest: 'images'
       extensions:
         - 'svg'
 
@@ -77,6 +63,6 @@ assetTasks:
   - 'images'
   - 'svgSprite'
 
-codeTasks: 
+codeTasks:
   - 'css'
   - 'js'

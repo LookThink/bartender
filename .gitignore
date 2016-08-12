@@ -5,7 +5,7 @@
 .sass-cache/
 *.scssc
 *.orig
-public/
+pkg/
 
 # Vendor folders
 node_modules/
