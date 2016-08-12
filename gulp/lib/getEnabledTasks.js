@@ -12,9 +12,6 @@ module.exports = function(env) {
 
   function matchFilter(task) {
     if(config.tasks[task]) {
-      if(task === 'js') {
-        task = env === 'production' ? 'webpack:production' : false
-      }
       return task;
     }
   };

@@ -1,6 +1,7 @@
 root: 
   src:  './src'
   dest: './pkg'
+  archiveName: 'smRC'
 
 tasks:
   defaultOrder:
@@ -12,9 +13,9 @@ tasks:
     - images
 
   # BrowserSync
-  browserSync:
-    server: 
-      baseDir: './pkg'
+  # browserSync:
+  #   server: 
+  #     baseDir: './pkg'
 
   # CSS Task
   css:
@@ -47,6 +48,13 @@ tasks:
   js:
     src: 'js'
     dest: 'js'
+    assets: 
+      - 'vendor/masonry.pkgd.js'
+      - 'vendor/twitterFetcher.js'
+      - 'vendor/jquery.bxslider.js'
+      - 'vendor/waypoint.js'
+      - 'vendor/jquery.h5validate.js'
+      - 'app.js'
 
   static:
     src: 'static'
@@ -57,6 +65,10 @@ tasks:
       dest: 'images'
       extensions:
         - 'svg'
+
+  zip:
+    src: 'pkg'
+    dest: './'
 
 assetTasks:
   - 'fonts'
