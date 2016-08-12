@@ -12,7 +12,7 @@ var browserSync = require('browser-sync'),
 
 var paths = {
   src: path.join(config.root.src, config.tasks.fonts.src, '/**/*'),
-  dest: path.join(config.root.dest, config.tasks.fonts.dest)
+  dest: path.join(config.root.dest, config.root.archiveName, config.tasks.fonts.dest)
 };
 
 var processFonts = function() {

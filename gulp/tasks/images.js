@@ -13,7 +13,7 @@ var browserSync = require('browser-sync')
 
 var paths = {
   src: path.join(config.root.src, config.tasks.images.src, '/**/*.{' + config.tasks.images.extensions + '}'),
-  dest: path.join(config.root.dest, config.tasks.images.dest)
+  dest: path.join(config.root.dest, config.root.archiveName, config.tasks.images.dest)
 };
 
 var processImages = function() {

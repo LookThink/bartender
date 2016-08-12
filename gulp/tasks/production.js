@@ -10,7 +10,7 @@ var productionTask = function(cb) {
     
     var tasks = getEnabledTasks('production');
     
-    gulpSequence('clean', tasks.assetTasks, tasks.codeTasks, 'static', cb);
+    gulpSequence('clean', tasks.assetTasks, tasks.codeTasks, 'static', 'zip', cb);
 };
 
 gulp.task('production', productionTask);

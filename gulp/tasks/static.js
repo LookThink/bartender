@@ -7,7 +7,7 @@ var yaml   = require('yamljs'),
 
 var paths = {
   src: path.join(config.root.src, config.tasks.static.src, '/**'),
-  dest: path.join(config.root.dest, config.tasks.static.dest)
+  dest: path.join(config.root.dest, config.root.archiveName, config.tasks.static.dest)
 };
 
 var staticTask = function() {

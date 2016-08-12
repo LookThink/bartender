@@ -15,7 +15,7 @@ var svgSpriteTask = function() {
 
   var settings = {
     src: path.join(config.root.src, config.tasks.svgSprite.src, '/*.svg'),
-    dest: path.join(config.root.dest, config.tasks.svgSprite.dest)
+    dest: path.join(config.root.dest, config.root.archiveName, config.tasks.svgSprite.dest)
   };
 
   return gulp.src(settings.src)
