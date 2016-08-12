@@ -1,6 +1,6 @@
 var gulp   = require('gulp'),
     del    = require('del'),
-    yaml   = require('yamljs')
+    yaml   = require('yamljs'),
     config = yaml.load('./gulp/config.yml')
 ;
 
