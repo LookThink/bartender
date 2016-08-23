@@ -51,20 +51,10 @@ tasks:
     dest: 'js'
 
     localAssets:
-      - 'app.js'
-      - 'domain/index.js'
-      - 'domain/user.service.js'
-      - 'domain/messages.service.js'
-      - 'login/index.js'
-      - 'login/login.ctrl.js'
-      - 'dashboard/index.js'
-      - 'dashboard/dashboard.ctrl.js'
 
-    vendorSrc: 'node_modules'
+
+    vendorSrc: 'vendor'
     vendorAssets:
-      - 'underscore/underscore-min.js'
-      - 'angular/angular.js'
-      - 'angular-ui-router/release/angular-ui-router.js'
       
     extensions: 
       - 'js'
