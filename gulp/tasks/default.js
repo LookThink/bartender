@@ -1,4 +1,4 @@
-var gulp            = require('gulp')
+var gulp            = require('gulp'),
     gulpSequence    = require('gulp-sequence'),
     getEnabledTasks = require('../lib/getEnabledTasks');
 

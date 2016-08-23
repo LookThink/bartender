@@ -1,8 +1,9 @@
-var yaml   = require('yamljs'),
-    config = yaml.load('./gulp/config.yml'),
-    changed = require('gulp-changed'),
-    gulp    = require('gulp'),
-    path    = require('path')
+var yaml        = require('yamljs'),
+    config      = yaml.load('./gulp/config.yml'),
+    changed     = require('gulp-changed'),
+    gulp        = require('gulp'),
+    browserSync = require('browser-sync'),
+    path        = require('path')
 ;
 
 var paths = {
@@ -14,6 +15,7 @@ var staticTask = function() {
   return gulp.src(paths.src)
     .pipe(changed(paths.dest)) // Ignore unchanged files
     .pipe(gulp.dest(paths.dest))
+    .on('end', browserSync.reload)
   ;
 };
 
