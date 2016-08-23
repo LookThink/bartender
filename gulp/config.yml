@@ -67,8 +67,8 @@ tasks:
     dest: './'
 
     svgSprite:
-      src: 'icons',
-      dest: 'images',
+      src: 'icons'
+      dest: 'images'
       extensions:
         - 'svg'
 
