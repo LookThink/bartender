@@ -5,7 +5,10 @@
 .sass-cache/
 *.scssc
 *.orig
-pkg/
+build/
 
 # Vendor folders
 node_modules/
+
+#Config Files
+sfCredentials.yml
