@@ -8,11 +8,10 @@ var gulp         = require('gulp'),
 var paths = {
   src: path.join(config.tasks.zip.src, '/**/*'),
   dest: path.join(config.tasks.zip.dest),
-  fileName: config.root.archiveName + '.zip'
+  fileName: config.root.archiveName + '.resource'
 };
 
 var zipPackage = function() {
-  console.log(paths.src);
   return gulp.src(paths.src)
     .pipe(zip(paths.fileName))
     .pipe(gulp.dest(paths.dest))
