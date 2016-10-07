@@ -6,7 +6,6 @@ var forceDeploy = function(username, password, token) {
     var conn = new jsforce.Connection();
 
     password = password + token;
-    console.log(password)
 
     return conn.login(username, password).then(function() {
       return conn.metadata.deploy(file.contents).complete({
