@@ -1,7 +1,7 @@
 root: 
   src:  './src'
-  dest: './pkg'
-  archiveName: 'smRC'
+  dest: './build'
+  archiveName: 'MyApp'
 
 tasks:
   defaultOrder:
@@ -9,13 +9,9 @@ tasks:
     - images
     - js
   watchableTasks:
+    - js
     - css
     - images
-
-  # BrowserSync
-  # browserSync:
-  #   server: 
-  #     baseDir: './pkg'
 
   # CSS Task
   css:
@@ -67,11 +63,8 @@ tasks:
         - 'svg'
 
   zip:
-    src: 'pkg'
-    dest: './'
-
-  salesforce:
-    loginUrl: 'https://na30.salesforce.com'
+    src: './build'
+    dest: './pkg/staticresources'
 
 assetTasks:
   - 'fonts'
