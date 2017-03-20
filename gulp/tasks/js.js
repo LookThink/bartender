@@ -10,7 +10,7 @@ if (!config.tasks.js) return;
 var gulp         = require('gulp'),
     browserSync  = require('browser-sync'),
     handleErrors = require('../lib/handleErrors'),
-    jshint       = require('gulp-jshint'),
+    eslint       = require('gulp-eslint'),
     sourcemaps   = require('gulp-sourcemaps'),
     concat       = require('gulp-concat'),
     uglify       = require('gulp-uglify'),
@@ -46,9 +46,10 @@ var processJs = function() {
     .on('error', handleErrors)
     // Initialize sourcemapping
     .pipe(sourcemaps.init())
-      // Run JSHint on all JS files
-      .pipe(jshint())
-      .pipe(jshint.reporter('default'))
+      // Run ESLint on all JS files
+      .pipe(eslint())
+      // eslint.format() outputs the lint results to the console. 
+      .pipe(eslint.format())
       // Concatenate JS filels in the order specified
       // in the paths.scripts variable
       .pipe(concat("app.js"))
