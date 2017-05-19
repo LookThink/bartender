@@ -1,4 +1,4 @@
-root: 
+root:
   src:  './src'
   dest: './public'
 
@@ -15,31 +15,42 @@ tasks:
 
   # BrowserSync
   browserSync:
-    server: 
+    server:
       baseDir: './public'
 
   # CSS Task
   css:
     src: 'scss'
     dest: 'css'
-    postCss:
-      autoprefixer:
+    postcss:
+      # postcss-cssnext
+      cssnext:
         browsers:
           - 'last 2 versions'
-          - 'IE 9'
-      cssnano: 
-        convertValues: false
+          - '>= ie 9'
+          - '>= iOS 7'
+      # postcss-assets
+      assets:
+        loadPaths:
+          - 'fonts/'
+          - 'images/'
+      # colorguard
+      colorguard:
+        threshold: '5'
+      # cssnano
+      cssnano:
+        colormin: false
         zindex: false
     extensions:
-      - 'sass'
-      - 'scss'
       - 'css'
+      - 'scss'
+      - 'sass'
 
   # Images Task
-  images: 
+  images:
     src: 'img'
     dest: 'img'
-    extensions: 
+    extensions:
       - 'png'
       - 'jpg'
       - 'jpeg'
@@ -55,15 +66,15 @@ tasks:
 
     vendorSrc: 'vendor'
     vendorAssets:
-      
-    extensions: 
+
+    extensions:
       - 'js'
       - 'json'
 
   static:
     src: 'static'
     dest: './'
-    extensions: 
+    extensions:
       - 'html'
 
     svgSprite:
