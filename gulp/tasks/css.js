@@ -44,7 +44,7 @@ var processCSS = function() {
   return gulp.src(paths.src)
     .pipe(sourcemaps.init())
     .pipe(sass())
-      .on('error', handleErrors))
+      .on('error', handleErrors)
     .pipe(postcss(postcssConfig))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.dest))
