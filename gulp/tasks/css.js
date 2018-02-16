@@ -14,7 +14,7 @@ var gulp         = require('gulp'),
     cssnext      = require('postcss-cssnext'),
     assets       = require('postcss-assets'),
     colorguard   = require('gulp-colorguard'),
-    cssnano      = require('gulp-cssnano')
+    cssnano      = require('cssnano')
 ;
 
 var paths = {
