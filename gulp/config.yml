@@ -27,8 +27,8 @@ tasks:
       cssnext:
         browsers:
           - 'last 2 versions'
-          - '>= ie 9'
-          - '>= iOS 7'
+          - 'IE 9'
+          - 'iOS 7'
       # postcss-assets
       assets:
         loadPaths:
